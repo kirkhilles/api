@@ -23,3 +23,9 @@ jobs:
       - name: Check PHP syntax
         run: |
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
+
+      - name: Run PHPStan
+        uses: phpstan/phpstan-ga@v1
+        with:
+          level: max
+          paths: src,api
