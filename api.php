@@ -15,7 +15,7 @@ define("LLM_MODEL_MEDIUM", LLM_LLAMA_70B);
 define("LLM_MODEL_HIGH", LLM_GPT_OSS_120B);
 define("LLM_MODEL_EMBEDDING", "openai/text-embedding-3-small");
 
-echo $sJunk;
+echo $sJunk." = 'broken'";
 
 $arrFields = array();
 $sLogText = "";
