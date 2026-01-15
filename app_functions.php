@@ -1825,8 +1825,6 @@ function getContextJSON(string $markdownInput, string $role = 'user'): string
     return json_encode($messageStructure, JSON_UNESCAPED_SLASHES);
 }
 
-<?php
-
 function searchFactoidsVector($sSearchText, $fMinScore = 0.3)
 {
     $arrEmbedding = getOpenAIEmbedding($sSearchText);
