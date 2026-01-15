@@ -2,8 +2,7 @@
 
 ini_set("display_errors", 1);
 
-require_once("SharedCodePI.php");
-require_once("_include/openrouter.php");
+require_once("app_functions.php");
 
 define("LLM_LLAMA_8B", "meta-llama/llama-3.1-8b-instruct");  //0.02/0.03
 define("LLM_LLAMA_70B", "deepseek/deepseek-r1-distill-llama-70b"); //0.03/0.11
