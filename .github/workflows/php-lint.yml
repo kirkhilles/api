@@ -25,7 +25,7 @@ jobs:
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
 
       - name: Run PHPStan
-        uses: phpstan/phpstan
+        uses: phpstan/phpstan@v1
         with:
           level: max
           paths: src,api
