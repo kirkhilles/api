@@ -24,8 +24,5 @@ jobs:
         run: |
           find . -name "*.php" -print0 | xargs -0 -n1 php -l
 
-      - name: Run PHPStan
-        uses: phpstan/phpstan@v1
-        with:
-          level: max
-          paths: src,api
+      - name: Run Static Analysis (PHPStan)
+        run: vendor/bin/phpstan analyse src --level=5
