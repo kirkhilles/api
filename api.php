@@ -13,7 +13,7 @@ define("LLM_GPT_OSS_120B", "openai/gpt-oss-120b:exacto"); //0.04/0.19
 define("LLM_MODEL_LOW", LLM_LLAMA_8B);
 define("LLM_MODEL_MEDIUM", LLM_LLAMA_70B);
 define("LLM_MODEL_HIGH", LLM_GPT_OSS_120B);
-define("LLM_MODEL_EMBEDDING", "openai/text-embedding-3-small");
+define("LLM_MODEL_EMBEDDING", "openai/text-embedding-3-small");xxx
 
 $arrFields = array();
 $sLogText = "";
