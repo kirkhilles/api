@@ -1,0 +1,25 @@
+name: API Lint
+
+on:
+  push:
+    branches: "main"
+  pull_request:
+    branches: "main"
+
+jobs:
+  built-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses actions/checkout@v3
+
+      - name : Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.4'
+          extensions: mbstring, intl, xml, curl, zip
+          tools: composer:v2
+
+      - name: Check PHP syntax
+        run: |
+          find . -name "*.php" -print0 | xargs -0 -n1 php -l
