@@ -14,8 +14,6 @@ define("LLM_MODEL_MEDIUM", LLM_LLAMA_70B);
 define("LLM_MODEL_HIGH", LLM_GPT_OSS_120B);
 define("LLM_MODEL_EMBEDDING", "openai/text-embedding-3-small");
 
-echo $sJunk." = 'broken'";
-
 $arrFields = array();
 $sLogText = "";
 for ($y = 0; $y <= 10; $y += 1)
@@ -69,32 +67,6 @@ header("Content-Type: application/json");
 echo json_encode($arrOutput);
 exit;
 
-
-function getLLM($arrFields)
-{
-    $sAction = $arrFields[1];
-    $sData = $arrFields[2];
-    $sModel = @$arrFields[3];
-
-    switch ($sAction)
-    {
-        case "Embedding":
-            return getOpenRouterEmbedding($sData, LLM_MODEL_EMBEDDING);
-        case "Prompt":
-            return getOpenRouter($sData, $sModel);
-
-        default:
-            return "Unknown action: $sAction";
-    }
-}
-
-function writeAPIlog($sMessage)
-{
-    $sLogFile = "api.log";
-    $sDate = date("Y-m-d H:i:s");
-    $sLogEntry = "[$sDate] $sMessage\n";
-    file_put_contents($sLogFile, $sLogEntry, FILE_APPEND);
-}
 
 //getOpenRouter($sData, LLM_MODEL_LOW);
 
