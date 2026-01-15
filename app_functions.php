@@ -1,5 +1,22 @@
 <?php
 
+function writeMySQLlog($sText)
+{
+    if (1 == 2)
+    {
+        $fp = fopen("/var/log/kirk/mysql_".date("Y-m-d").".log", 'a');
+            fwrite($fp, "[".date("Y-m-d H:i:s")."] ".$sText.chr(10));
+        fclose($fp);
+    }
+}
+
+function writeLog($sText)
+{
+    $fp = fopen("errors_".date("Y-m-d").".log", 'a');
+    fwrite($fp, "[".date("Y-m-d H:i:s")."] ".$sText.chr(10));
+    fclose($fp);
+}
+
 function getConnectionTRADING($sDB)
 {
     return mysqli_connect("192.168.0.7", "repuser", "Respect1", $sDB);
