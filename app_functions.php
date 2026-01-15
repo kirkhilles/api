@@ -1,5 +1,45 @@
 <?php
 
+function getConnectionTRADING($sDB)
+{
+    return mysqli_connect("192.168.0.7", "repuser", "Respect1", $sDB);
+}
+
+function getConnectionI()
+{
+    return mysqli_connect("192.168.0.7", "repuser", "Respect1");
+}
+
+function getData($sSQL, $conn)
+{
+    try
+    {
+        writeMySQLlog($sSQL);
+        $result = $conn->query($sSQL);
+        return $result;
+    } catch (mysqli_sql_exception $e)
+    {
+        echo "Error: ".$e->getMessage();
+        return false;
+    }
+}
+
+function getResultB($result)
+{
+    if ($result == false)
+    {
+        writeLog("Error (getResultB), Unknown Query");
+    }
+
+    return mysqli_fetch_assoc($result);
+}
+
+function getError($conn)
+{
+    return mysqli_error($conn);
+}
+
+
 function getLLM($arrFields)
 {
     $sAction = $arrFields[1];
