@@ -29,3 +29,7 @@ jobs:
 
       - name: Run Static Analysis (PHPStan)
         run: vendor/bin/phpstan analyse
+
+      - name: Check Code Style (PSR-12)
+        run: vendor/bin/php-cs-fixer fix --dry-run --diff
+        continue-on-error: true        
